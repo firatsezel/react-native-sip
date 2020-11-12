@@ -1,12 +1,12 @@
 {
   "scripts": {
-    "postinstall": "bash libs.sh",
+    "postinstall": "node ./libs.js",
     "lint": "eslint ./src",
     "generate-docs": "node_modules/.bin/jsdoc --configure .jsdoc.json --verbose"
   },
   "author": {
-    "name": "Florin Dumitru",
-    "email": "dumitru.florin@outlook.com"
+    "name": "Firat Sezel",
+    "email": "firat.sezel@gmail.com"
   },
   "bugs": {
     "url": "https://github.com/firatsezel/react-native-sip/issues"
