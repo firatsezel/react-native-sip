@@ -9,7 +9,7 @@
     "email": "dumitru.florin@outlook.com"
   },
   "bugs": {
-    "url": "https://github.com/florindumitru/react-native-sip/issues"
+    "url": "https://github.com/firatsezel/react-native-sip/issues"
   },
   "dependencies": {
     "events": "1.1.0"
@@ -28,7 +28,7 @@
   },
   "name": "react-native-sip",
   "description": "SIP module for React Native",
-  "homepage": "https://github.com/florindumitru/react-native-sip",
+  "homepage": "https://github.com/firatsezel/react-native-sip",
   "keywords": [
     "react-component",
     "react-native",
@@ -44,7 +44,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/florindumitru/react-native-sip.git"
+    "url": "git+https://github.com/firatsezel/react-native-sip.git"
   },
   "version": "2.9.0"
 }
