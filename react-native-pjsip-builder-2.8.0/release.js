@@ -15,12 +15,12 @@ const { spawn } = require('child_process');
 
 async function main() {
 
-    console.log("Execute build_android.js");
+    /*console.log("Execute build_android.js");
     let script = spawn(`node ${__dirname}/build_android.js`, { shell: true });
 
     for await (const data of script.stdout) {
         console.log(`${data}`);
-    }
+    }*/
 
     console.log("Execute build_ios.js");
     script = spawn(`node ${__dirname}/build_ios.js`, { shell: true });

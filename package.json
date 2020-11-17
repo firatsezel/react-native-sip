@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "postinstall": "./libs.sh",
+    "postinstall": "node libs.js",
     "lint": "eslint ./src",
     "generate-docs": "node_modules/.bin/jsdoc --configure .jsdoc.json --verbose"
   },

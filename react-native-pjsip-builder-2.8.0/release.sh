@@ -3,7 +3,7 @@ set -e
 
 rm -rf ./dist;
 ./build_android.sh;
-./build_ios.sh;
+#./build_ios.sh;
 
 cd ./dist;
 

@@ -22,8 +22,8 @@ async function main() {
     console.log("Copy iOS stuff");
     fs.copySync(__dirname + '/react-native-pjsip-builder-2.8.0/dist/ios/VialerPJSIP.framework',  __dirname + '/ios/VialerPJSIP.framework/', { overwrite: true });
 
-    console.log("Copy Android stuff");
-    fs.copySync(__dirname + '/react-native-pjsip-builder-2.8.0/dist/android/src/', __dirname + '/android/src/', { overwrite: true });
+    // console.log("Copy Android stuff");
+    // fs.copySync(__dirname + '/react-native-pjsip-builder-2.8.0/dist/android/src/', __dirname + '/android/src/', { overwrite: true });
 
 
     console.log("Write .libs.lock file");
