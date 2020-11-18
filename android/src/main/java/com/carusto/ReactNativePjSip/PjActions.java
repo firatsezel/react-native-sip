@@ -27,7 +27,6 @@ public class PjActions {
     public static final String ACTION_REGISTER_ACCOUNT = "account_register";
     public static final String ACTION_DELETE_ACCOUNT = "account_delete";
     public static final String ACTION_MAKE_CALL = "call_make";
-    public static final String ACTION_SEND_MESSAGE = "send_message";
     public static final String ACTION_HANGUP_CALL = "call_hangup";
     public static final String ACTION_DECLINE_CALL = "call_decline";
     public static final String ACTION_ANSWER_CALL = "call_answer";
@@ -41,6 +40,7 @@ public class PjActions {
     public static final String ACTION_XFER_REPLACES_CALL = "call_xfer_replace";
     public static final String ACTION_REDIRECT_CALL = "call_redirect";
     public static final String ACTION_DTMF_CALL = "call_dtmf";
+    public static final String ACTION_SEND_MESSAGE = "send_message";
 
     public static final String ACTION_SET_SERVICE_CONFIGURATION = "set_service_configuration";
 
