@@ -2,6 +2,8 @@ package com.carusto.ReactNativePjSip;
 
 import org.json.JSONObject;
 import org.pjsip.pjsua2.OnInstantMessageParam;
+import org.pjsip.pjsua2.SendInstantMessageParam;
+import org.pjsip.pjsua2.BuddyConfig;
 
 public class PjSipMessage {
 
@@ -9,10 +11,40 @@ public class PjSipMessage {
 
     private OnInstantMessageParam prm;
 
+    private PjSipMyBuddy mBuddy = null;
+
+    public PjSipMessage(PjSipAccount account) {
+        this.account = account;
+    }
+
     public PjSipMessage(PjSipAccount account, OnInstantMessageParam prm) {
         this.account = account;
         this.prm = prm;
     }
+
+    public int sendMessage(String msgBody, String remoteUser) {
+		if (account == null || remoteUser == null
+				|| remoteUser.isEmpty() || msgBody == null || msgBody.isEmpty()) {
+			return -1;
+		}
+		if (mBuddy != null) {
+			for (int i = 0; i < account.buddyList.size(); i++) {
+				account.delBuddy(i);
+			}
+		}
+		try {
+			BuddyConfig buddyConfig = new BuddyConfig();
+			buddyConfig.setUri(remoteUser); //<sip:mobile2@sip.kentkart.com>
+			mBuddy = account.addBuddy(buddyConfig);
+			SendInstantMessageParam messageParam = new SendInstantMessageParam();
+			messageParam.setContent(msgBody);
+			mBuddy.sendInstantMessage(messageParam);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return -2;
+		}
+		return 0;
+	}
 
     public OnInstantMessageParam getParam() {
         return prm;

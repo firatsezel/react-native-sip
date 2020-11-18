@@ -261,10 +261,10 @@ export default class Endpoint extends EventEmitter {
      * @param msg {String} Message.
      */
     sendMessage(account, destination, msg) {
-        destination = this._normalize(account, destination);
+        // destination = this._normalize(account, destination);
 
         return new Promise(function(resolve, reject) {
-            NativeModules.PjSipModule.sendMessage(account.getId(), destination, msg, (successful, data) => {
+            NativeModules.PjSipModule.sendMessage(account.id, destination, msg, (successful, data) => {
                 if (successful) {
                     resolve(data);
                 } else {

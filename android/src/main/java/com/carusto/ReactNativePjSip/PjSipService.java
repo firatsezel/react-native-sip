@@ -345,6 +345,11 @@ public class PjSipService extends Service {
             case PjActions.ACTION_DELETE_ACCOUNT:
                 handleAccountDelete(intent);
                 break;
+            
+            // Message actions
+            case PjActions.ACTION_SEND_MESSAGE:
+                handleSendMessage(intent);
+                break;
 
             // Call actions
             case PjActions.ACTION_MAKE_CALL:
@@ -596,6 +601,19 @@ public class PjSipService extends Service {
 
             // -----
             mEmitter.fireIntentHandled(intent);
+        } catch (Exception e) {
+            mEmitter.fireIntentHandled(intent, e);
+        }
+    }
+
+    private void handleSendMessage(Intent intent) {
+        try {
+            int accountId = intent.getIntExtra("account_id", -1);
+            PjSipAccount account = findAccount(accountId);
+            PjSipMessage messageEvent = new PjSipMessage(account);
+            String destination = intent.getStringExtra("destination");
+            String message = intent.getStringExtra("message");
+            messageEvent.sendMessage(message, destination);
         } catch (Exception e) {
             mEmitter.fireIntentHandled(intent, e);
         }

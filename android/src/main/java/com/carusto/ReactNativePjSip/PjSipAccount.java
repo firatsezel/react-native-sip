@@ -1,13 +1,17 @@
 package com.carusto.ReactNativePjSip;
 
 import com.carusto.ReactNativePjSip.dto.AccountConfigurationDTO;
+import java.util.ArrayList;
 import org.json.JSONObject;
 import org.pjsip.pjsua2.Account;
+import org.pjsip.pjsua2.BuddyConfig;
 import org.pjsip.pjsua2.OnIncomingCallParam;
 import org.pjsip.pjsua2.OnInstantMessageParam;
 import org.pjsip.pjsua2.OnRegStateParam;
 
 public class PjSipAccount extends Account {
+
+    public ArrayList<PjSipMyBuddy> buddyList = new ArrayList<PjSipMyBuddy>();
 
     private static String TAG = "PjSipAccount";
 
@@ -31,6 +35,40 @@ public class PjSipAccount extends Account {
     public void register(boolean renew) throws Exception {
         setRegistration(renew);
     }
+
+    public PjSipMyBuddy addBuddy(BuddyConfig bud_cfg) {
+		PjSipMyBuddy bud = new PjSipMyBuddy(bud_cfg);
+		try {
+			bud.create(this, bud_cfg);
+		} catch (Exception e) {
+			bud.delete();
+			bud = null;
+		}
+
+		if (bud != null) {
+			buddyList.add(bud);
+			if (bud_cfg.getSubscribe()) {
+				try {
+					bud.subscribePresence(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+				
+		}
+		return bud;
+	}
+
+	public void delBuddy(PjSipMyBuddy buddy) {
+		buddyList.remove(buddy);
+		buddy.delete();
+	}
+
+	public void delBuddy(int index) {
+		PjSipMyBuddy bud = buddyList.get(index);
+		buddyList.remove(index);
+		bud.delete();
+	}
 
     public PjSipService getService() {
         return service;

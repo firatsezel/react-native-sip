@@ -27,6 +27,7 @@ public class PjActions {
     public static final String ACTION_REGISTER_ACCOUNT = "account_register";
     public static final String ACTION_DELETE_ACCOUNT = "account_delete";
     public static final String ACTION_MAKE_CALL = "call_make";
+    public static final String ACTION_SEND_MESSAGE = "send_message";
     public static final String ACTION_HANGUP_CALL = "call_hangup";
     public static final String ACTION_DECLINE_CALL = "call_decline";
     public static final String ACTION_ANSWER_CALL = "call_answer";
@@ -116,6 +117,16 @@ public class PjActions {
         if (message != null) {
             intent.putExtra("message", SipMessageDTO.fromReadableMap(message).toJson());
         }
+
+        return intent;
+    }
+
+    public static Intent createSendMessageIntent(int accountId, String destination, String message, Context context) {
+        Intent intent = new Intent(context, PjSipService.class);
+        intent.setAction(PjActions.ACTION_SEND_MESSAGE);
+        intent.putExtra("account_id", accountId);
+        intent.putExtra("destination", destination);
+        intent.putExtra("message", message);
 
         return intent;
     }
