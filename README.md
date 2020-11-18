@@ -7,9 +7,9 @@
 
 ## What additionally contains
 
-*[x] Fix for [Could not configure 'libc6:i386'](https://github.com/florindumitru/react-native-sip/issues/13)
+- [x] Fix for [Could not configure 'libc6:i386'](https://github.com/florindumitru/react-native-sip/issues/13)
 
-*[x] Android Send SIP Messages (IM) Support
+- [x] Android Send SIP Messages (IM) Support
 
 # react-native-sip
 ![npm version](https://badge.fury.io/js/react-native-sip.svg)
