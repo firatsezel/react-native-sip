@@ -1,5 +1,16 @@
 
 
+## ATTENTION
+
+
+*This repo it's based on a fork of [florindumitru/react-native-sip](https://github.com/florindumitru/react-native-sip)*
+
+## What additionally contains
+
+*[x] Fix for [Could not configure 'libc6:i386'](https://github.com/florindumitru/react-native-sip/issues/13)
+
+*[x] Android Send SIP Messages (IM) Support
+
 # react-native-sip
 ![npm version](https://badge.fury.io/js/react-native-sip.svg)
 
@@ -23,7 +34,7 @@ iOS - For RN 0.60+ you need to execute the following commands:
 ## To do
 
  - [x] Send SIP Messages (IM) iOS
- - [ ] Send SIP Messages (IM) Android
+ - [x] Send SIP Messages (IM) Android
  -  [x] isTyping iOS
  - [ ] isTyping Android
 
@@ -110,8 +121,3 @@ endpoint.addListener("call_terminated", (newCall) => {
 ## API
 
 [DOCUMENTATION](https://florindumitru.github.io/react-native-sip/)
-
-
-
-
-*This repo it's based on a fork of [datso/react-native-pjsip](https://github.com/datso/react-native-pjsip).* 
