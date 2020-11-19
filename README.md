@@ -18,13 +18,14 @@
 
 iOS - For RN 0.60+ you need to execute the following commands:
 
-    yarn add react-native-sip
+    yarn add firatsezel/react-native-sip
     cd ios
     pod install
 
 
 ## Support
-- Currently support for iOS and Android.  
+- Currently support for iOS and Android.
+- Instant Messages supported for bot iOS and Android.
 - Support video and audio communication.
 - Ability to use Callkit and PushNotifications.
 - You can use it to build an iOS/Android app that can communicate with SIP server.
