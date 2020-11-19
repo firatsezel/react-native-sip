@@ -121,9 +121,10 @@ public class PjActions {
         return intent;
     }
 
-    public static Intent createSendMessageIntent(int accountId, String destination, String message, Context context) {
+    public static Intent createSendMessageIntent(int callbackId, int accountId, String destination, String message, Context context) {
         Intent intent = new Intent(context, PjSipService.class);
         intent.setAction(PjActions.ACTION_SEND_MESSAGE);
+        intent.putExtra("callback_id", callbackId);
         intent.putExtra("account_id", accountId);
         intent.putExtra("destination", destination);
         intent.putExtra("message", message);

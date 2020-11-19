@@ -12,7 +12,7 @@ public class PjSipMyBuddy extends Buddy {
 
 	public PjSipMyBuddy(BuddyConfig config) {
 		super();
-		buddyConfig = config;
+		this.buddyConfig = config;
 	}
 
 	String getStatusText() {

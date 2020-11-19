@@ -610,10 +610,12 @@ public class PjSipService extends Service {
         try {
             int accountId = intent.getIntExtra("account_id", -1);
             PjSipAccount account = findAccount(accountId);
-            PjSipMessage messageEvent = new PjSipMessage(account);
             String destination = intent.getStringExtra("destination");
             String message = intent.getStringExtra("message");
+            PjSipMessage messageEvent = new PjSipMessage(account);
             messageEvent.sendMessage(message, destination);
+
+            mEmitter.fireIntentHandled(intent);
         } catch (Exception e) {
             mEmitter.fireIntentHandled(intent, e);
         }

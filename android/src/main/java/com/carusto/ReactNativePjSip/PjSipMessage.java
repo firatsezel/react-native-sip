@@ -23,16 +23,17 @@ public class PjSipMessage {
     }
 
     public int sendMessage(String msgBody, String remoteUser) {
-		if (account == null || remoteUser == null
-				|| remoteUser.isEmpty() || msgBody == null || msgBody.isEmpty()) {
-			return -1;
-		}
-		if (mBuddy != null) {
-			for (int i = 0; i < account.buddyList.size(); i++) {
-				account.delBuddy(i);
-			}
-		}
 		try {
+            if (account == null || remoteUser == null
+				|| remoteUser.isEmpty() || msgBody == null || msgBody.isEmpty()) {
+			    return -1;
+            }
+            if (mBuddy != null) {
+                for (int i = 0; i < account.buddyList.size(); i++) {
+                    account.delBuddy(i);
+                }
+            }
+
 			BuddyConfig buddyConfig = new BuddyConfig();
 			buddyConfig.setUri(remoteUser); //<sip:mobile2@sip.kentkart.com>
 			mBuddy = account.addBuddy(buddyConfig);
